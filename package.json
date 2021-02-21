@@ -4,8 +4,8 @@
   "description": "Automation tetst",
   "main": "index.js",
   "scripts": {
-    "test": "rm -rf allure-report allure-results && wdio wdio.conf.js",
-    "report": "allure generate && allure open"
+    "test": "wdio wdio.conf.js",
+    "report": "allure generate --clean && allure open"
   },
   "author": "Viktor Melnyk",
   "license": "ISC",
