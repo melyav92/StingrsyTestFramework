@@ -7,7 +7,7 @@ describe('Manual lice count register ', () => {
         $('#Password').addValue(123456);
         $('#login-button').click();
         browser.pause(2000);
-        let register = $('body header div div div ul li a').getText();
+        let register = $('.open').getText();
         console.log(register)
 
             // register.click()
