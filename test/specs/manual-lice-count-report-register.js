@@ -16,6 +16,12 @@ describe('Manual lice count register ', () => {
         console.log(registermenuitemname)
 
 
+       // const my_element = browser.findElement(By.xpath("//*[text() = 'Resulst']"));
+        //console.log(my_element)
+
+
+
+
         const registerlink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]')
         registerlink.click(); //click on the 'Register' menu item
         browser.pause(1000);
