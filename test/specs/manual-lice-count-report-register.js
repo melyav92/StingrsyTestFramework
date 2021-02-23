@@ -6,21 +6,15 @@ describe('Manual lice count register ', () => {
         $('#Username').addValue('bolacslu');
         $('#Password').addValue(123456);
         $('#login-button').click();
-        const cameramenuitem = $('.dropdown-toggle, .arrow').getText()
-        console.log(cameramenuitem)
 
-        $('.dropdown-toggle, .arrow').click(); //click on the 'Camera' menu item
+        const cameraMenuItem = $('.dropdown-toggle, .arrow').getText()
+        console.log(cameraMenuItem)
+
+        $('.dropdown-toggle, .arrow').click(); //click on the 'Camera' menu item by class
         browser.pause(1000);
 
         const registermenuitemname = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]/a').getText()
         console.log(registermenuitemname)
-
-
-       // const my_element = browser.findElement(By.xpath("//*[text() = 'Resulst']"));
-        //console.log(my_element)
-
-
-
 
         const registerlink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]')
         registerlink.click(); //click on the 'Register' menu item
@@ -30,6 +24,19 @@ describe('Manual lice count register ', () => {
         registermanualcountlink.click(); //click on the 'Register manual count' menu item
         browser.pause(4000);
 
+
+        ////Find 'Register' dropdown in another(easier) way
+        const registerDropdown  = $('a*=Register') // find 'a' element by text tretment
+        console.log(registerDropdown.getText()) // outputs: "Treatment" - item name
+        registerDropdown.click()
+        browser.pause(1500);
+
+
+        const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text tretment
+        console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
+        console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
+        treatmentMenuItem.click()
+        browser.pause(4000);
 
         assert.strictEqual(registermenuitemname, 'REGISTER')
     })
