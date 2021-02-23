@@ -13,15 +13,15 @@ describe('Manual lice count register ', () => {
         $('.dropdown-toggle, .arrow').click(); //click on the 'Camera' menu item by class
         browser.pause(1000);
 
-        const registermenuitemname = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]/a').getText()
-        console.log(registermenuitemname)
+        const registerMenuItemName = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]/a').getText()
+        console.log(registerMenuItemName)
 
-        const registerlink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]')
-        registerlink.click(); //click on the 'Register' menu item
+        const registerLink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]')
+        registerLink.click(); //click on the 'Register' menu item
         browser.pause(1000);
 
-        const registermanualcountlink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]/ul/li[4]');
-        registermanualcountlink.click(); //click on the 'Register manual count' menu item
+        const registerManualCountLink = $('//*[@id="main-nav-menu-collapse"]/ul/li[3]/ul/li[4]');
+        registerManualCountLink.click(); //click on the 'Register manual count' menu item
         browser.pause(4000);
 
 
@@ -38,7 +38,7 @@ describe('Manual lice count register ', () => {
         treatmentMenuItem.click()
         browser.pause(4000);
 
-        assert.strictEqual(registermenuitemname, 'REGISTER')
+        assert.strictEqual(registerMenuItemName, 'REGISTER')
     })
 })
 
