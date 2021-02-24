@@ -27,16 +27,19 @@ describe('Manual lice count register ', () => {
 
         ////Find 'Register' dropdown in another(easier) way
         const registerDropdown  = $('a*=Register') // find 'a' element by text tretment
-        console.log(registerDropdown.getText()) // outputs: "Treatment" - item name
+        console.log(registerDropdown.getText()) // outputs: "Register" - item name
         registerDropdown.click()
         browser.pause(1500);
 
 
-        const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text tretment
+        const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text treatment
         console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
         console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
         treatmentMenuItem.click()
         browser.pause(4000);
+
+        //browser.executeScript("document.getElementById('datepicker').value='02/11/2019'"); //find date
+        browser.executeScript()
 
         assert.strictEqual(registerMenuItemName, 'REGISTER')
     })
