@@ -28,8 +28,40 @@ describe('Treatment register page  ', () => {
         openDatePicker.click()
         //browser.pause(1000);
 
-        openDatePicker.addValue(1)
-        console.log(openDatePicker)
+
+//-----------------------------------------------------------------------------------------------------------
+
+        const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
+        console.log('current date = ' + currentDate)
+        console.log(typeof(Number(currentDate)))
+
+
+        const date = $$('td').length - 53 + 37;
+        console.log('date picker length ' + $$('td').length)
+        console.log('date index is ' + date)
+
+
+
+        const selectDay = $$('td')[date];
+        console.log(selectDay)
+        console.log('date to select is ' + selectDay.getText())
+        selectDay.click()
+
+
+
+
+        browser.pause(4000);
+
+
+        //const selectDay = $('td*=25')
+       // console.log(selectDay)
+       // selectDay.click()
+        //browser.pause(2000);
+
+
+
+        //openDatePicker.addValue(1)
+       // console.log(openDatePicker)
 
         const pensDropdown = $('#pens_selector_chosen')
         pensDropdown.click()
