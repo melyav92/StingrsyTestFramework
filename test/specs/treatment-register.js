@@ -13,7 +13,6 @@ describe('Treatment register page  ', () => {
         registerDropdown.click()
         browser.pause(1000);
 
-
         const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text treatment
         console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
         console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
@@ -28,67 +27,35 @@ describe('Treatment register page  ', () => {
         openDatePicker.click()
         //browser.pause(1000);
 
-
-//-----------------------------------------------------------------------------------------------------------
-
         const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
         console.log('current date = ' + currentDate)
-
 
         let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate })
         console.log('qwerty ' + selectDate)
         console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
         selectDate.click()
         browser.pause(2000);
-       // const date = $$('td').length - 53 + 37;  //calculate date index
-       // console.log('date picker length ' + $$('td').length)
-        //console.log('date index is ' + date)
-
-
-       // const selectDay = $$('td')[date];
+      // const selectDay = $$('td')[date]; //in this case it is index
        // console.log(selectDay)
         //console.log('date to select is ' + selectDay.getText())
         //selectDay.click()
 
-      //  const datePicker =  $$('.day')
+      //  const datePicker =  $$('.day') //cycle which displays the data from the end of the array
        // console.log(datePicker.length)
       //  for(i = datePicker.length - 1; i > datePicker.length - 15; i-- ){
-            //console.log(datePicker[i].getText());
-            //const d = datePicker[i].getText() == currentDate;
-          //  const d = datePicker[i].getText()
-          //  console.log(d);
-          //  const a = (element) => element  = currentDate;
-          //  console.log(d.findIndex(a));
-        //}
+           //console.log(datePicker[i].getText());
+        // }
 
-       // function findDateIndex (){
-         //   if(currentDate > 20 && currentDate < 32){
-           //     const datePicker =  $$('.day')
-            ///    for(i = 7; i < datePicker.length; i++ ){
-                    //console.log(datePicker[i].getText())
-              //      const d = datePicker[i].getText()
-              //      console.log(d)
-              //  }
-               // console.log(d)
+       //for(i = 0; i < datePicker.length; i++ ){  //cycle which displays the data from the begining of the array
+         //console.log(datePicker[i].getText())
+        //
+         //  }
 
-
-            //   console.log('works')
-           // } else console.log('date is bigger tah 20')
-
-      //  }
-        //console.log(findDateIndex())
-
-        browser.pause(4000);
-
-
-        //const selectDay = $('td*=25')
+       //const selectDay = $('td*=25')
        // console.log(selectDay)
        // selectDay.click()
-        //browser.pause(2000);
 
-
-
-        //openDatePicker.addValue(1)
+        //openDatePicker.addValue(1) // enters 1 in date picker and date picker sets current date
        // console.log(openDatePicker)
 
         const pensDropdown = $('#pens_selector_chosen')
@@ -117,7 +84,6 @@ describe('Treatment register page  ', () => {
 
         //const toaster = $('#toast-container')
         //console.log(toaster.getText())
-
 
         browser.pause(4000);
 
