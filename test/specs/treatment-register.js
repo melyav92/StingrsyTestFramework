@@ -33,22 +33,50 @@ describe('Treatment register page  ', () => {
 
         const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
         console.log('current date = ' + currentDate)
-        console.log(typeof(Number(currentDate)))
 
 
-        const date = $$('td').length - 53 + 37;
-        console.log('date picker length ' + $$('td').length)
-        console.log('date index is ' + date)
+        let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate })
+        console.log('qwerty ' + selectDate)
+        console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
+        selectDate.click()
+        browser.pause(2000);
+       // const date = $$('td').length - 53 + 37;  //calculate date index
+       // console.log('date picker length ' + $$('td').length)
+        //console.log('date index is ' + date)
 
 
+       // const selectDay = $$('td')[date];
+       // console.log(selectDay)
+        //console.log('date to select is ' + selectDay.getText())
+        //selectDay.click()
 
-        const selectDay = $$('td')[date];
-        console.log(selectDay)
-        console.log('date to select is ' + selectDay.getText())
-        selectDay.click()
+      //  const datePicker =  $$('.day')
+       // console.log(datePicker.length)
+      //  for(i = datePicker.length - 1; i > datePicker.length - 15; i-- ){
+            //console.log(datePicker[i].getText());
+            //const d = datePicker[i].getText() == currentDate;
+          //  const d = datePicker[i].getText()
+          //  console.log(d);
+          //  const a = (element) => element  = currentDate;
+          //  console.log(d.findIndex(a));
+        //}
+
+       // function findDateIndex (){
+         //   if(currentDate > 20 && currentDate < 32){
+           //     const datePicker =  $$('.day')
+            ///    for(i = 7; i < datePicker.length; i++ ){
+                    //console.log(datePicker[i].getText())
+              //      const d = datePicker[i].getText()
+              //      console.log(d)
+              //  }
+               // console.log(d)
 
 
+            //   console.log('works')
+           // } else console.log('date is bigger tah 20')
 
+      //  }
+        //console.log(findDateIndex())
 
         browser.pause(4000);
 
