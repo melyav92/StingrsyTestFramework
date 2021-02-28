@@ -79,8 +79,12 @@ describe('Treatment register page  ', () => {
         addPens.click() // Click on 'Add pens' button
 
         const enterFishPenValue = $('.scp-fish-per-pen-input')
+        enterFishPenValue.click()
+
+        enterFishPenValue.clearValue()
+
         enterFishPenValue.addValue(1500)
-        console.log(enterFishPenValue.getText())
+        //console.log(enterFishPenValue.getText())
 
         const save = $('#save-btn') // save the report
         save.click()
