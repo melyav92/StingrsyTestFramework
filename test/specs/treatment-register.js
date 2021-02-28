@@ -25,14 +25,14 @@ describe('Treatment register page  ', () => {
 
         const openDatePicker = $('#counted-date-date-picker') // find 'addNewTreatmentButton
         openDatePicker.click()
-        //browser.pause(1000);
+        browser.pause(1000);
 
         const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
         console.log('current date = ' + currentDate)
 
         let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate })
-        console.log('qwerty ' + selectDate)
-        console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
+        console.log('date which will be selected is ' + selectDate.getText())
+        //console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
         selectDate.click()
         browser.pause(2000);
       // const selectDay = $$('td')[date]; //in this case it is index
@@ -55,15 +55,18 @@ describe('Treatment register page  ', () => {
        // console.log(selectDay)
        // selectDay.click()
 
-        //openDatePicker.addValue(1) // enters 1 in date picker and date picker sets current date
+        //openDatePicker.addValue(1) // enters 1 in date picker and date picker sets current date automatically
        // console.log(openDatePicker)
 
         const pensDropdown = $('#pens_selector_chosen')
-        pensDropdown.click()
+        pensDropdown.click() // opens pens dropdown list
 
-        const penM1 = $('li*=M1')
+        const penM1 = $('li*=M1') // search pen 'M1'
         console.log(penM1.getText())
-        penM1.click()
+        penM1.click() // adds pen 'M1' to the report
+
+        const addComment = $('#coment-for-all-pen-input')
+        addComment.addValue('Comment for the pen M1')
 
         const openTreatmentDropdown = $('#treatment-selector-for-all-pens')
         openTreatmentDropdown.click()
@@ -73,21 +76,22 @@ describe('Treatment register page  ', () => {
         selectTreatmentType.click()
 
         const addPens = $('#add-new-treatment-for-pens-btn')
-        addPens.click()
+        addPens.click() // Click on 'Add pens' button
 
-        const enterFishpenValue = $('.scp-fish-per-pen-input')
-        enterFishpenValue.addValue(1500)
-        console.log(enterFishpenValue.getText())
+        const enterFishPenValue = $('.scp-fish-per-pen-input')
+        enterFishPenValue.addValue(1500)
+        console.log(enterFishPenValue.getText())
 
-        const save = $('#save-btn')
+        const save = $('#save-btn') // save the report
         save.click()
 
-        //const toaster = $('#toast-container')
-        //console.log(toaster.getText())
+        $('#toast-container').waitForDisplayed()
+        const toaster = $('#toast-container')
+        console.log('Toaster popup message is ' + '"' + toaster.getText() + '"')
 
         browser.pause(4000);
 
-        assert.strictEqual(browser.getTitle(), 'Treatment register')
+        assert.strictEqual(toaster.getText(), 'Treatment was saved successfully')
     })
 
 
