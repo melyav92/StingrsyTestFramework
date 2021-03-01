@@ -27,10 +27,10 @@ describe('Treatment register page  ', () => {
         openDatePicker.click()
         browser.pause(1000);
 
-        const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
+        const currentDate = new Date().getUTCDate();  //gets current date
         console.log('current date = ' + currentDate)
 
-        let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate })
+        let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() == currentDate })
         console.log('date which will be selected is ' + selectDate.getText())
         //console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
         selectDate.click()
