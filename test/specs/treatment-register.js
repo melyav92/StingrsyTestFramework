@@ -27,10 +27,10 @@ describe('Treatment register page  ', () => {
         openDatePicker.click()
         browser.pause(1000);
 
-        const currentDate = new Date().toISOString().slice(8, 10);  //gets current date
+        const currentDate = new Date().getUTCDate();  //gets current date
         console.log('current date = ' + currentDate)
 
-        let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate })
+        let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() == currentDate })
         console.log('date which will be selected is ' + selectDate.getText())
         //console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
         selectDate.click()
@@ -79,8 +79,12 @@ describe('Treatment register page  ', () => {
         addPens.click() // Click on 'Add pens' button
 
         const enterFishPenValue = $('.scp-fish-per-pen-input')
+        enterFishPenValue.click()
+
+        enterFishPenValue.clearValue()
+
         enterFishPenValue.addValue(1500)
-        console.log(enterFishPenValue.getText())
+        //console.log(enterFishPenValue.getText())
 
         const save = $('#save-btn') // save the report
         save.click()
@@ -93,6 +97,16 @@ describe('Treatment register page  ', () => {
 
         assert.strictEqual(toaster.getText(), 'Treatment was saved successfully')
     })
+
+    it('Pen "M1" exists in the list  ', () => {
+        const penM1 = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
+        console.log(penM1.getText())
+
+
+
+        assert.strictEqual(penM1.getText(), 'M1')
+    })
+
 
 
 })
