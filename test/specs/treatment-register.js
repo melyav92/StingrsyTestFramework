@@ -98,6 +98,16 @@ describe('Treatment register page  ', () => {
         assert.strictEqual(toaster.getText(), 'Treatment was saved successfully')
     })
 
+    it('Pen "M1" exists in the list  ', () => {
+        const penM1 = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
+        console.log(penM1.getText())
+
+
+
+        assert.strictEqual(penM1.getText(), 'M1')
+    })
+
+
 
 })
 
