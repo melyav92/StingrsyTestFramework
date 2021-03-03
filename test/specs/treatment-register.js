@@ -1,23 +1,30 @@
-const {assert} = require('chai');
+const assert = require('chai').assert;
+const should = require('chai').should();
+const expect = require('chai').expect;
+
 
 describe('Treatment register page  ', () => {
-    it('Treatment report is saved', () => {
+
+    it('Login under location user and go to the treatment register page  ', () => {
         browser.url ('/');
         $('#Username').addValue('bolacslu');
         $('#Password').addValue(123456);
         $('#login-button').click();
-        browser.pause(1000);
-
+       // browser.pause(1000);
         const registerDropdown  = $('a*=Register') // find 'a' element by text tretment
         console.log(registerDropdown.getText()) // outputs: "Register" - item name
         registerDropdown.click()
-        browser.pause(1000);
+       // browser.pause(1000);
 
         const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text treatment
         console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
         console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
         treatmentMenuItem.click()
-        browser.pause(1000);
+       // browser.pause(1000);
+
+    })
+
+    it('Register new treatment report', () => {
 
         const addNewTreatmentButton = $('#add-new-treatment-btn') // find 'addNewTreatmentButton
         addNewTreatmentButton.click()
@@ -95,7 +102,7 @@ describe('Treatment register page  ', () => {
 
         browser.pause(4000);
 
-        assert.strictEqual(toaster.getText(), 'Treatment was saved successfully')
+        assert.equal(toaster.getText(), 'Treatment was saved successfully')
     })
 
     it('Pen "M1" exists in the list  ', () => {
@@ -104,7 +111,10 @@ describe('Treatment register page  ', () => {
 
 
 
-        assert.strictEqual(penM1.getText(), 'M1')
+        //assert.equal(penM1.getText(), 'M1', 'pen name is wrong')
+        expect(penM1.getText()).to.equal('M1') // Chai expect assertion
+        //penM1.getText().should.equal('M1') //chai should assertion
+
     })
 
 
