@@ -1,4 +1,7 @@
-const {assert} = require('chai');
+const assert = require('chai').assert;
+const should = require('chai').should();
+const expect = require('chai').expect;
+
 
 describe('Treatment register page  ', () => {
 
@@ -7,17 +10,17 @@ describe('Treatment register page  ', () => {
         $('#Username').addValue('bolacslu');
         $('#Password').addValue(123456);
         $('#login-button').click();
-        browser.pause(1000);
+       // browser.pause(1000);
         const registerDropdown  = $('a*=Register') // find 'a' element by text tretment
         console.log(registerDropdown.getText()) // outputs: "Register" - item name
         registerDropdown.click()
-        browser.pause(1000);
+       // browser.pause(1000);
 
         const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text treatment
         console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
         console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
         treatmentMenuItem.click()
-        browser.pause(1000);
+       // browser.pause(1000);
 
     })
 
@@ -108,7 +111,9 @@ describe('Treatment register page  ', () => {
 
 
 
-        assert.equal(penM1.getText(), 'M1', 'pen name is wrong')
+        //assert.equal(penM1.getText(), 'M1', 'pen name is wrong')
+        expect(penM1.getText()).to.equal('M1') // Chai expect assertion
+        //penM1.getText().should.equal('M1') //chai should assertion
 
     })
 
