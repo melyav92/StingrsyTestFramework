@@ -20,12 +20,12 @@ describe('Treatment register page  ', () => {
         console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
         console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
         treatmentMenuItem.click()
-       // browser.pause(1000);
+        //browser.pause(1000);
 
     })
 
-    it('Register new treatment report', () => {
-
+    it.skip('Register new treatment report', () => {
+        $('#add-new-treatment-btn').waitForDisplayed()
         const addNewTreatmentButton = $('#add-new-treatment-btn') // find 'addNewTreatmentButton
         addNewTreatmentButton.click()
         browser.pause(1000);
@@ -100,20 +100,39 @@ describe('Treatment register page  ', () => {
         const toaster = $('#toast-container')
         console.log('Toaster popup message is ' + '"' + toaster.getText() + '"')
 
-        browser.pause(4000);
+        //browser.pause(4000);
 
         assert.equal(toaster.getText(), 'Treatment was saved successfully')
     })
 
+
     it('Pen "M1" exists in the list  ', () => {
-        const penM1 = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
-        console.log(penM1.getText())
+        browser.pause(4000);
+        const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
 
+        console.log(penM1Name.getText())
 
+        const m1PenId = $(penM1Name).getAttribute("data-pen-id")
+
+        console.log('pen M1 id = ' + m1PenId)
 
         //assert.equal(penM1.getText(), 'M1', 'pen name is wrong')
-        expect(penM1.getText()).to.equal('M1') // Chai expect assertion
+        expect(penM1Name.getText()).to.equal('M1') // Chai expect assertion
         //penM1.getText().should.equal('M1') //chai should assertion
+
+
+
+    })
+
+    it('Fish/pen value is  1500', () => {
+
+        const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'})
+        const m1PenId = $(penM1Name).getAttribute("data-pen-id") //find pen id(data-pen-id attribute) by pen name
+        console.log('pen M1 id = ' + m1PenId)
+
+        const  fishPenValue  = $('input'.m1PenId).getValue()
+        console.log(fishPenValue)
+
 
     })
 
