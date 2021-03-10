@@ -11,6 +11,8 @@ describe('Treatment register page  ', () => {
         $('#Password').addValue(123456);
         $('#login-button').click();
        // browser.pause(1000);
+
+        $('a*=Register').waitForDisplayed()
         const registerDropdown  = $('a*=Register') // find 'a' element by text tretment
         console.log(registerDropdown.getText()) // outputs: "Register" - item name
         registerDropdown.click()
@@ -107,7 +109,7 @@ describe('Treatment register page  ', () => {
 
 
     it('Pen "M1" exists in the list  ', () => {
-        browser.pause(4000);
+        //browser.pause(4000);
         const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
 
         console.log(penM1Name.getText())
@@ -130,8 +132,10 @@ describe('Treatment register page  ', () => {
         const m1PenId = $(penM1Name).getAttribute("data-pen-id") //find pen id(data-pen-id attribute) by pen name
         console.log('pen M1 id = ' + m1PenId)
 
-        const  fishPenValue  = $('input'.m1PenId).getValue()
-        console.log(fishPenValue)
+        const  fishPenValue  = $(`input.scp-fish-per-pen-input[data-pen-id="${m1PenId}"]`).getValue() //gets fish/pen value by data pen id attribute
+        console.log('fish/pen value is ' + fishPenValue)
+
+        fishPenValue.should.equal('1500')
 
 
     })
