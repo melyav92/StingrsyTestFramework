@@ -109,7 +109,7 @@ describe('Treatment register page  ', () => {
 
 
     it('Pen "M1" exists in the list  ', () => {
-        //browser.pause(4000);
+        $('div.scp-pen-code').waitForDisplayed()
         const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
 
         console.log(penM1Name.getText())
@@ -127,7 +127,7 @@ describe('Treatment register page  ', () => {
     })
 
     it('Fish/pen value is  1500', () => {
-
+        $('div.scp-pen-code').waitForDisplayed()
         const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'})
         const m1PenId = $(penM1Name).getAttribute("data-pen-id") //find pen id(data-pen-id attribute) by pen name
         console.log('pen M1 id = ' + m1PenId)
