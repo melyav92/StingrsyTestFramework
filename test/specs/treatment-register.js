@@ -34,7 +34,7 @@ describe('Treatment register page  ', () => {
 
     })
 
-    it('should register new treatment report for pen M1 and M2', () => {
+    it('Should register new treatment report for pen M1 and M2', () => {
         $('#counted-date-date-picker').waitForDisplayed()
         $('#add-new-treatment-btn').waitForDisplayed()
         const addNewTreatmentButton = $('#add-new-treatment-btn') // find 'addNewTreatmentButton
@@ -66,7 +66,6 @@ describe('Treatment register page  ', () => {
         // }
        //for(i = 0; i < datePicker.length; i++ ){  //cycle which displays the data from the begining of the array
          //console.log(datePicker[i].getText())
-        //
          //  }
        //const selectDay = $('td*=25')
        // console.log(selectDay)
@@ -146,7 +145,7 @@ describe('Treatment register page  ', () => {
 
 
     it('Should verify that pen "M1" exists in the report details list  ', () => {
-        $('#DataTables_Table_0').waitForDisplayed()
+        penNameInReportDetailsTable("M1").waitForDisplayed()
         //const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'}) //to be changed to the dataset
         const penM1Name = penNameInReportDetailsTable("M1")
         console.log('Pen M1 exists in the list ' + penM1Name.getText())
@@ -190,6 +189,7 @@ describe('Treatment register page  ', () => {
         fishPenValueForPenM1.should.equal('1500')
 
     })
+
     //it('Pen comment is correct', () => {
     // const penM1Name = $$('div.scp-pen-code').find(function(item){return item.getText() === 'M1'})
     // const m1PenId = $(penM1Name).getAttribute("data-pen-id") //find pen id(data-pen-id attribute) by pen name
@@ -240,6 +240,25 @@ describe('Treatment register page  ', () => {
         fishPenValueForPenM2.should.equal('3000')
 
     })
+
+    //it('Should delete just created report', () => {
+        //const expandTreatmentReportsList = $('.scp-expandable-area-button-text')
+        //expandTreatmentReportsList.click()
+        //browser.pause(1500)
+        //const  deleteTreatmentReport = $('.scp-registered-date.scp-treatment-date.selected')
+      // console.log(deleteTreatmentReport.getText())
+       // deleteTreatmentReport.previousElement().click()
+       // browser.pause(1500)
+        //const approveDelete = $('button.confirm')
+       // browser.pause(1500)
+      //  approveDelete.click()
+     //  const cancelDelete = $('button.cancel')
+       //browser.pause(1500)
+       // cancelDelete.click()
+      //  browser.pause(3000)
+        //fishPenValueForPenM2.should.equal('3000')
+        //deleteTreatmentReport.getText().should.not.equal(new Date().toLocaleDateString("en-GB"))
+    //})
 
 
 })

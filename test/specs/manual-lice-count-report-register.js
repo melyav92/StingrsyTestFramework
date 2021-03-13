@@ -32,10 +32,10 @@ describe('Manual lice count register ', () => {
         browser.pause(1500);
 
 
-        const treatmentMenuItem = $('a*=Treatment') // find 'a' element by text tretment
-        console.log(treatmentMenuItem.getText()) // outputs: "Treatment" - item name
-        console.log(treatmentMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
-        treatmentMenuItem.click()
+        const manualLiceCountMenuItem = $('a*=Manual lice count') // find 'a' element by text tretment
+        console.log(manualLiceCountMenuItem.getText()) // outputs: "Treatment" - item name
+        console.log(manualLiceCountMenuItem.getAttribute('href')) // outputs: "https://192.168.10.49:8100/en/Treatment/Register"
+        manualLiceCountMenuItem.click()
         browser.pause(4000);
 
         assert.strictEqual(registerMenuItemName, 'REGISTER')
