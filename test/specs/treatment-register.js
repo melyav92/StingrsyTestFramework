@@ -35,26 +35,28 @@ describe('Treatment register page  ', () => {
     })
 
     it('Should register new treatment report for pen M1 and M2', () => {
-        $('#counted-date-date-picker').waitForDisplayed()
-        $('#add-new-treatment-btn').waitForDisplayed()
+        browser.pause(3000);
         const addNewTreatmentButton = $('#add-new-treatment-btn') // find 'addNewTreatmentButton
+       // addNewTreatmentButton.waitForDisplayed()
         addNewTreatmentButton.click()
-        //browser.pause(1000);
+        browser.pause(1000);
 
         const openDatePicker = $('#counted-date-date-picker')
+        //openDatePicker.waitForDisplayed(1000)
         openDatePicker.click()
-        //browser.pause(1000);
+        browser.pause(1000);
 
         // gets current date
         const currentDate = new Date().getUTCDate();
         console.log('current date = ' + currentDate)
-        $('#counted-date-date-picker').waitForDisplayed()
-        $('.day:not(.new):not(.old)').waitForDisplayed()
+
+        //openDatePicker.waitForDisplayed(1500)
         let selectDate = $$('.day:not(.new):not(.old)').find(function(item){return item.getText() == currentDate })
         console.log('date which will be selected is ' + selectDate.getText())
         //console.log($$('.day:not(.new):not(.old)').find(function(item){return item.getText() === currentDate }))
+        //selectDate.waitForDisplayed(1000)
         selectDate.click()
-       // browser.pause(2000);
+        browser.pause(1000);
       // const selectDay = $$('td')[date]; //in this case it is index
        // console.log(selectDay)
         //console.log('date to select is ' + selectDay.getText())
@@ -75,15 +77,15 @@ describe('Treatment register page  ', () => {
         const pensDropdown = $('#pens_selector_chosen')
         pensDropdown.click() // opens pens dropdown list
 
-        $('#pens_selector_chosen.chosen-container-active').waitForDisplayed()
         const selectPenM1 = $('li*=M1') // search pen 'M1'
         console.log('pen in the pens dropdown is ' + selectPenM1.getText())
+        selectPenM1.waitForDisplayed(500)
         selectPenM1.click() // adds pen 'M1' to the report
 
         pensDropdown.click()
-        $('#pens_selector_chosen.chosen-container-active').waitForDisplayed()
         const selectPenM2 = $('li*=M2')
         console.log('pen in the pens dropdown is ' + selectPenM2.getText())
+        selectPenM2.waitForDisplayed(500)
         selectPenM2.click()
 
         //const addComment = $('#coment-for-all-pen-input')
@@ -91,7 +93,7 @@ describe('Treatment register page  ', () => {
 
         const openTreatmentDropdown = $('#treatment-selector-for-all-pens')
         openTreatmentDropdown.click()
-        $('#treatment-selector-for-all-pens').waitForDisplayed()
+        openTreatmentDropdown.waitForDisplayed()
 
         // select treatment type for all selected pens
         const selectTreatmentType = $('option*=Slice')
